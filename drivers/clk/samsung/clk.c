@@ -283,7 +283,7 @@ void __init samsung_clk_of_register_fixed_ext(
 	for_each_matching_node_and_match(np, clk_matches, &match) {
 		if (of_property_read_u32(np, "clock-frequency", &freq))
 			continue;
-		fixed_rate_clk[(u32)match->data].fixed_rate = freq;
+		fixed_rate_clk[(unsigned long)match->data].fixed_rate = freq;
 	}
 	samsung_clk_register_fixed_rate(fixed_rate_clk, nr_fixed_rate_clk);
 }
